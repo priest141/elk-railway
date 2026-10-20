@@ -2,6 +2,7 @@
 ARG LOGSTASH_VERSION=9.1.0
 FROM docker.elastic.co/logstash/logstash-wolfi:${LOGSTASH_VERSION}
 
+RUN rm -f /usr/share/logstash/pipeline/logstash.conf
 # Copy pipeline and config
 COPY ./pipeline /usr/share/logstash/pipeline
 COPY ./config/logstash.yml /usr/share/logstash/config/logstash.yml
